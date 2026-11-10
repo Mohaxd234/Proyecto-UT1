@@ -52,8 +52,9 @@ class Program
                                     Console.WriteLine("1. Yoga");
                                     Console.WriteLine("2. Crossfit");
                                     Console.WriteLine("3. Salir");
-                                    
                                     break;
+                                default:
+                                    Console.WriteLine("Opción incorrecta");
                             }
                         } else
                         {
