@@ -66,6 +66,7 @@ do
     Console.WriteLine("Con que tipo de usuario desea ingresar:");
     tipoUsuario = int.Parse(Console.ReadLine()!);
 
+    // Dependiendo de la eleccion, vamos al meno de administrador, al de usuario o salimos
     switch (tipoUsuario)
     {
         case 1:
@@ -120,7 +121,8 @@ do
                                         Console.WriteLine();
                                         Console.WriteLine("Cuantas personas deseas añadir: ");
                                         anadirPersonasYoga = int.Parse(Console.ReadLine()!);
-                                        //Aqui hacemos esta comprobacion para que no podamos añadir mas personas que el maximo del aforo (20)
+                                        // Aqui hacemos esta comprobacion para que no podamos añadir mas personas que el maximo del aforo
+                                        // Verificamos que el número de personas a añadir no se pase del límite máximo de plazas
                                         if (anadirPersonasYoga > (aforoMaximoYoga - aforoYoga))
                                         {
                                             Console.WriteLine("Esta cantidad supera el número de plazas disponibles");
@@ -233,6 +235,7 @@ do
                             Console.WriteLine("Que ingresos quieres consultar");
                             opcionConsultarIngresos = int.Parse(Console.ReadLine()!);
 
+                            // Calculamos los ingresos sumando la cuota de las clases y la cuota base multiplicada por el numero de usuarios que pagan la cuota base
                             ingresosMensuales = (aforoYoga * 43.5) + (aforoCrossfit * 45) + ((socios - (aforoYoga + aforoCrossfit)) * 32);
                             ingresosAnuales = ingresosMensuales * 12;
 
@@ -335,6 +338,7 @@ do
                         acompanante = 15;
                     }
                     // Revisar error luego
+                    // Aplicamos la regla de descuento del 10% en  la suma de la clase y los extras si el cliente tiene 65 años o más
                     if (edadCliente >= 65)
                     {
                         descuento = (precioClase + precioExtras) * 0.10;
@@ -355,6 +359,8 @@ do
 
                     numDeOperaciones++;
                     recaudacion += total;
+                    
+                    // Guardamos el registro de la operación mas cara, si es la primera operación sew pone automaticamente
                     if (numDeOperaciones == 1 || total > operacionMasCara)
                     {
                         operacionMasCara = total;
